@@ -1,0 +1,47 @@
+
+
+.tagSlider{
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  &__scene{
+    overflow: hidden;
+    overflow-x: scroll;
+    height: auto;
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      li{
+        white-space: nowrap;
+        padding: 0 12px;
+        &:first-child{
+          padding-left: 0;
+        }
+        &:last-child{
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  &__li-active{
+    text-decoration: underline;
+  }
+  &__button{
+    display: none;
+    position: absolute;
+  }
+  &-overflow {
+    margin-left: 0;
+    margin-right: 0;
+    ul{
+      justify-content: normal;
+    }
+    .tagSlider {
+      &__button {
+        display: block;
+      }
+    }
+  }
+}
