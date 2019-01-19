@@ -2,7 +2,7 @@
   "name": "tag-slider",
   "version": "0.0.1",
   "description": "jQuery tag slider with native scroll",
-  "main": "index.js",
+  "main": "dist/tag-slider.js",
   "scripts": {
     "dev": "webpack-dev-server --open  --config webpack.dev.js",
     "prod": "webpack --config webpack.prod.js"
