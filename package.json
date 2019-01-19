@@ -17,8 +17,7 @@
   "author": "Nick Leidman",
   "license": "ISC",
   "dependencies": {
-    "bez": "^0.1.0",
-    "jquery": "^3.3.1"
+    "bez": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

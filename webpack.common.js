@@ -24,11 +24,6 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        alias: {
-            jquery: 'jquery/src/jquery', // resolve to dist folder
-        }
-    },
     plugins: [
         new HtmlWebpackPlugin({
             inject: false,
@@ -40,11 +35,7 @@ module.exports = {
             filename: 'tag-slider.css',
             disable: false,
             allChunks: true
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        })/*,
+        })/*
         new CopyWebpackPlugin([
             {from: './src/icons/fonts', to: 'icons/fonts'}
         ]),
