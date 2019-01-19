@@ -6,16 +6,25 @@
     <link rel="stylesheet" href="tag-slider.css">
 </head>
 <body>
-    <ul class="tagList">
-        <li>test tag</li>
-        <li>test tag 2</li>
-        <li>test tag 3</li>
-        <li>test tag 4</li>
-        <li>test tag 5</li>
-        <li>test tag 6</li>
-        <li>test tag 7</li>
-        <li>test tag 8</li>
-    </ul>
+<ul class="tagList">
+    <li>test tag</li>
+    <li>test tag 2</li>
+    <li>test tag 3</li>
+    <li>test tag 4</li>
+    <li>test tag 5</li>
+    <li>test tag 6</li>
+    <li>test tag 7</li>
+    <li>test tag 8</li>
+</ul>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="tag-slider.js"></script>
+<script>
+    $('.tagList').tagSlider({
+        overflowMargin: 30,
+        test: 'test'
+    });
+
+    $('.tagList').tagSlider('selectTag', 5);
+</script>
 </body>
 </html>
