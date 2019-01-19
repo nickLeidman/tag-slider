@@ -1,6 +1,6 @@
 {
   "name": "tag-slider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "jQuery tag slider with native scroll",
   "main": "dist/tag-slider.js",
   "scripts": {

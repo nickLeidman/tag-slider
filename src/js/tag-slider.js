@@ -1,5 +1,3 @@
-console.log('hello world');
-
 import '../style/tag-slider.scss';
 import 'bez/jquery.bez.min';
 
@@ -186,13 +184,6 @@ import 'bez/jquery.bez.min';
     };
 
 }( jQuery ));
-
-$('.tagList').tagSlider({
-    overflowMargin: 30,
-    test: 'test'
-});
-
-$('.tagList').tagSlider('selectTag', 5);
 
 //measure scrollbar
 

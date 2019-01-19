@@ -35,11 +35,11 @@ module.exports = {
             filename: 'tag-slider.css',
             disable: false,
             allChunks: true
-        }),
+        })/*,
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
-        })/*,
+        }),
         new CopyWebpackPlugin([
             {from: './src/icons/fonts', to: 'icons/fonts'}
         ]),

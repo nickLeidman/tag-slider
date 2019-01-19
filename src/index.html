@@ -6,16 +6,25 @@
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
 </head>
 <body>
-    <ul class="tagList">
-        <li>test tag</li>
-        <li>test tag 2</li>
-        <li>test tag 3</li>
-        <li>test tag 4</li>
-        <li>test tag 5</li>
-        <li>test tag 6</li>
-        <li>test tag 7</li>
-        <li>test tag 8</li>
-    </ul>
+<ul class="tagList">
+    <li>test tag</li>
+    <li>test tag 2</li>
+    <li>test tag 3</li>
+    <li>test tag 4</li>
+    <li>test tag 5</li>
+    <li>test tag 6</li>
+    <li>test tag 7</li>
+    <li>test tag 8</li>
+</ul>
 <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $('.tagList').tagSlider({
+        overflowMargin: 30,
+        test: 'test'
+    });
+
+    $('.tagList').tagSlider('selectTag', 5);
+</script>
 </body>
 </html>
