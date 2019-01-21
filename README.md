@@ -1,5 +1,9 @@
 ##Initialization
 
+!WARNING! Plugin is in development! 
+For now features are extremely limited. 
+Stand by for updates ;)
+
 ###html
 
 ```
@@ -39,11 +43,11 @@ values: (string); default: 'tagSlider__tag'
 
 ###prevArrowContent
 
-values: (string/jQuery object); default: '<' 
+values: (string); default: '<' 
 
 ###nextArrowContent
 
-values: (string/jQuery object); default: '>' 
+values: (string); default: '>' 
 
 ###easing
 
