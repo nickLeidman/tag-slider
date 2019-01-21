@@ -1,0 +1,31 @@
+.tagSlider {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  display: inline-flex; }
+  .tagSlider ul li {
+    white-space: nowrap;
+    padding: 0 12px; }
+    .tagSlider ul li:first-child {
+      padding-left: 0; }
+    .tagSlider ul li:last-child {
+      padding-right: 0; }
+  .tagSlider__list {
+    overflow: hidden;
+    overflow-x: scroll;
+    opacity: 0;
+    transition-property: opacity; }
+  .tagSlider__button {
+    width: 2em;
+    top: 0;
+    border: none;
+    background: none;
+    padding: 0;
+    outline: none !important;
+    cursor: pointer; }
+  .tagSlider__tag {
+    display: block;
+    border-radius: 999em;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em 0.7em; }

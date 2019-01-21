@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   max-width: 100%;
+  box-sizing: border-box;
   &__scene{
     overflow: hidden;
     overflow-x: scroll;
@@ -26,11 +27,24 @@
     }
   }
   &__li-active{
-    text-decoration: underline;
+    .tagSlider{
+      &__tag{
+        text-decoration: underline;
+      }
+    }
   }
   &__button{
     display: none;
     position: absolute;
+    top: 0;
+    height: 100%;
+    width: 20px;
+    &-prev{
+      left: 0;
+    }
+    &-next{
+      right: 0;
+    }
   }
   &-overflow {
     margin-left: 0;

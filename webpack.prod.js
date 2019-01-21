@@ -1,7 +1,6 @@
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const path = require('path');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const merge = require('webpack-merge');
@@ -43,49 +42,7 @@ module.exports = merge(common, {
                         ]
                     }
                 }
-            },
-            {
-                test: /\.(scss|sass)$/,
-                /*include: [
-                    path.resolve(__dirname, "src")
-                ],*/
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    publicPath: '../../',
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        },
-                        {
-                            loader: 'resolve-url-loader'
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        },
-                        {
-                            loader: 'sass-loader?sourceMap'
-                        }
-                    ]
-                })
-            },
-            {
-                test: /\.(css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {minimize: true}
-                        },
-                        {
-                            loader: 'resolve-url-loader'
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        },
-                    ]
-                })
-            },
+            }
         ]
     },
     plugins: [

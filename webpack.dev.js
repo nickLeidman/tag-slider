@@ -30,45 +30,7 @@ module.exports = merge(common, {
                         ]
                     }
                 }
-            },
-            {
-                test: /\.(scss|sass)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    publicPath: '../../',
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        },
-                        {
-                            loader: 'resolve-url-loader'
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        },
-                        {
-                            loader: 'sass-loader?sourceMap'
-                        }
-                    ]
-                })
-            },
-            {
-                test: /\.(css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        },
-                        {
-                            loader: 'resolve-url-loader'
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        },
-                    ]
-                })
-            },
+            }
         ]
     },
 });

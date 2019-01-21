@@ -1,7 +1,8 @@
 .tagSlider {
   position: relative;
   overflow: hidden;
-  max-width: 100%; }
+  max-width: 100%;
+  box-sizing: border-box; }
   .tagSlider__scene {
     overflow: hidden;
     overflow-x: scroll;
@@ -18,11 +19,18 @@
           padding-left: 0; }
         .tagSlider__scene ul li:last-child {
           padding-right: 0; }
-  .tagSlider__li-active {
+  .tagSlider__li-active .tagSlider__tag {
     text-decoration: underline; }
   .tagSlider__button {
     display: none;
-    position: absolute; }
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 20px; }
+    .tagSlider__button-prev {
+      left: 0; }
+    .tagSlider__button-next {
+      right: 0; }
   .tagSlider-overflow {
     margin-left: 0;
     margin-right: 0; }

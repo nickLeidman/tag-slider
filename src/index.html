@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>tag-slider demo</title>
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+    <link rel="stylesheet" href="tag-slider.css">
+    <link rel="stylesheet" href="tag-slider-theme.css">
 </head>
 <body>
 <ul class="tagList">
@@ -17,14 +18,17 @@
     <li>test tag 8</li>
 </ul>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+<script src="tag-slider.js"></script>
 <script>
-    $('.tagList').tagSlider({
-        overflowMargin: 30,
-        test: 'test'
+    $('.tagList').on('init', (e,slider) => {
+        //console.log(slider)
     });
-
-    $('.tagList').tagSlider('selectTag', 5);
+    $('.tagList').on('tagSelected', (e ,selected, previous, slider) => {
+        //console.log(selected, previous, slider);
+    });
+    $('.tagList').tagSlider({
+        //initialTag: 9,
+    });
 </script>
 </body>
 </html>

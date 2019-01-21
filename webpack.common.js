@@ -2,13 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractCSS = new ExtractTextPlugin('[name]');
 
 module.exports = {
-    entry: "./src/js/tag-slider.js",
+    entry: {
+        'tag-slider.js': "./src/js/tag-slider.js",
+        'tag-slider.css': './src/style/tag-slider.scss',
+        'tag-slider-theme.css': './src/style/tag-slider-theme.scss'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'tag-slider.js'
+        filename: '[name]'
     },
     module: {
         rules: [
@@ -21,6 +25,26 @@ module.exports = {
                         outputPath: 'assets/fonts'
                     }
                 }]
+            },
+            {
+                test: /\.(scss|sass)$/,
+                use: ExtractCSS.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'resolve-url-loader'
+                        },
+                        {
+                            loader: 'postcss-loader'
+                        },
+                        {
+                            loader: 'sass-loader?sourceMap'
+                        }
+                    ]
+                })
             }
         ]
     },
@@ -31,17 +55,7 @@ module.exports = {
             template: './src/index.html',
             filename: 'index.html'
         }),
-        new ExtractTextPlugin({
-            filename: 'tag-slider.css',
-            disable: false,
-            allChunks: true
-        })/*
-        new CopyWebpackPlugin([
-            {from: './src/icons/fonts', to: 'icons/fonts'}
-        ]),
-        new CopyWebpackPlugin([
-            {from: './src/favicon', to: 'favicon'}
-        ])*/
+        ExtractCSS
     ]
 }
 ;
