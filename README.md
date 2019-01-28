@@ -54,3 +54,10 @@ values: (string); default: '>'
 jQuery easing for animation
 
 values: (jQuery easing); default: 'swing' 
+
+##Events
+
+###tagSliderScroll
+###tagSliderBuilt
+###tagSliderInit
+###tagSliderTagSelected

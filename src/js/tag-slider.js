@@ -15,6 +15,7 @@
                 prevArrowContent: '<',
                 nextArrowContent: '>',
                 easing: 'swing',
+                noWrap: false,
             };
 
             this.options = {...defaults, ...options};
@@ -45,6 +46,7 @@
             this.scene.scroll(() => {
                 this.d = this.scene.scrollLeft();
                 this.reenableArrows();
+                this.list.trigger('tagSliderScroll', [this]);
             });
 
 
@@ -58,11 +60,19 @@
             this.buttonLeft = $('<button class="tagSlider__button tagSlider__button-prev">'+this.options.prevArrowContent+'</button>');
             this.container.append(this.buttonRight);
             this.container.prepend(this.buttonLeft);
-            this.scene.find('li').each((index, element) =>{
-                const li = $(element);
-                li.html('<button class="'+this.options.tagClass+'">'+li.html()+'</button>')
-            });
-            this.list.trigger('built', [this]);
+            if(!this.options.noWrap){
+                this.scene.find('li').each((index, element) =>{
+                    const li = $(element);
+                    li.html('<button class="'+this.options.tagClass+'">'+li.html()+'</button>')
+                });
+            }
+            else {
+                this.scene.find('li').each((index, element) =>{
+                    const li = $(element);
+                    li.find('>*').addClass(this.options.tagClass);
+                });
+            }
+            this.list.trigger('tagSliderBuilt', [this]);
         };
 
         init = () => {
@@ -72,7 +82,7 @@
             this.selectTag(false, true);
             $(window).resize(this.recalculate);
             this.container.addClass('tagSlider-loaded');
-            this.list.trigger('init', [this]);
+            this.list.trigger('tagSliderInit', [this]);
         };
 
         countTags = () => {
@@ -96,7 +106,7 @@
         };
 
         handleTagClick = (i) => {
-            this.list.trigger('tagSelected', [i, this.activeTag, this]);
+            this.list.trigger('tagSliderTagSelected', [i, this.activeTag, this]);
             this.selectTag(i);
             const tag = this.items[i];
         };
@@ -195,7 +205,12 @@
             if (typeof options == 'object' || typeof options == 'undefined')
                 this[i].tagSlider = new TagSlider($(this[i]), options);
             else {
-                this[i].tagSlider[options](args);
+                if(typeof (this[i].tagSlider[options]) === "function"){
+                    this[i].tagSlider[options](args);
+                }
+                else{
+                    console.warn('tagSlider: no such method "'+options+'"');
+                }
             }
             if (typeof ret != 'undefined') return ret;
         }

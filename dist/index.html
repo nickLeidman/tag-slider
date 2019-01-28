@@ -17,18 +17,33 @@
     <li>test tag 7</li>
     <li>test tag 8</li>
 </ul>
+
+With links:
+<ul id="withLinks">
+    <li><a href="javascript:void(0)">test tag</a></li>
+    <li><a href="javascript:void(0)">test tag 2</a></li>
+    <li><a href="javascript:void(0)">test tag 3</a></li>
+    <li><a href="javascript:void(0)">test tag 4</a></li>
+    <li><a href="javascript:void(0)">test tag 5</a></li>
+    <li><a href="javascript:void(0)">test tag 6</a></li>
+    <li><a href="javascript:void(0)">test tag 7</a></li>
+    <li><a href="javascript:void(0)">test tag 8</a></li>
+</ul>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="tag-slider.js"></script>
 <script>
-    $('.tagList').on('init', (e,slider) => {
+    $('.tagList').on('tagSliderInit', (e,slider) => {
         //console.log(slider)
     });
-    $('.tagList').on('tagSelected', (e ,selected, previous, slider) => {
+    $('.tagList').on('tagSliderTagSelected', (e ,selected, previous, slider) => {
         //console.log(selected, previous, slider);
     });
-    $('.tagList').tagSlider({
+    $('.tagList').tagSlider({});
 
+    $('#withLinks').tagSlider({
+        noWrap: true,
     });
+    //$('.tagList').tagSlider('test', 'test');
 </script>
 </body>
 </html>
