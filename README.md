@@ -33,27 +33,33 @@ $('.your-class').tagSlider({options});
 
 Initial tag id to select
 
-values: (number); default: 0 
+values: (number); default: `0` 
 
 ###tagClass
 
 tag button class
 
-values: (string); default: 'tagSlider__tag' 
+values: (string); default: `'tagSlider__tag'` 
 
 ###prevArrowContent
 
-values: (string); default: '<' 
+values: (string); default: `'<'` 
 
 ###nextArrowContent
 
-values: (string); default: '>' 
+values: (string); default: `'>'` 
 
 ###easing
 
 jQuery easing for animation
 
-values: (jQuery easing); default: 'swing' 
+values: (jQuery easing); default: `'swing'` 
+
+###center
+
+toggle center mode 
+
+values: (bool); default: `false` 
 
 ##Events
 

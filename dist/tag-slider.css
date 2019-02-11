@@ -38,3 +38,8 @@
       justify-content: normal; }
     .tagSlider-overflow .tagSlider__button {
       display: block; }
+  .tagSlider-center {
+    width: 100%; }
+    .tagSlider-center .tagSlider__scene {
+      margin-left: auto;
+      margin-right: auto; }

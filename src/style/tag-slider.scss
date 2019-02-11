@@ -58,4 +58,13 @@
       }
     }
   }
+  &-center{
+    width: 100%;
+    .tagSlider{
+      &__scene{
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 }

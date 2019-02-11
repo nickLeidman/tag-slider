@@ -16,6 +16,7 @@
                 nextArrowContent: '>',
                 easing: 'swing',
                 noWrap: false,
+                center: false,
             };
 
             this.options = {...defaults, ...options};
@@ -55,19 +56,19 @@
 
         buildStructure = () => {
             this.scene = this.list.wrap('<div class="tagSlider__scene"></div>').parent();
-            this.container = this.scene.wrap('<div class="tagSlider"></div>').parent();
-            this.buttonRight = $('<button class="tagSlider__button tagSlider__button-next">'+this.options.nextArrowContent+'</button>');
-            this.buttonLeft = $('<button class="tagSlider__button tagSlider__button-prev">'+this.options.prevArrowContent+'</button>');
+            const tagSliderString = 'tagSlider ' + (this.options.center ? 'tagSlider-center' : '');
+            this.container = this.scene.wrap('<div class="' + tagSliderString + '"></div>').parent();
+            this.buttonRight = $('<button class="tagSlider__button tagSlider__button-next">' + this.options.nextArrowContent + '</button>');
+            this.buttonLeft = $('<button class="tagSlider__button tagSlider__button-prev">' + this.options.prevArrowContent + '</button>');
             this.container.append(this.buttonRight);
             this.container.prepend(this.buttonLeft);
-            if(!this.options.noWrap){
-                this.scene.find('li').each((index, element) =>{
+            if (!this.options.noWrap) {
+                this.scene.find('li').each((index, element) => {
                     const li = $(element);
-                    li.html('<button class="'+this.options.tagClass+'">'+li.html()+'</button>')
+                    li.html('<button class="' + this.options.tagClass + '">' + li.html() + '</button>')
                 });
-            }
-            else {
-                this.scene.find('li').each((index, element) =>{
+            } else {
+                this.scene.find('li').each((index, element) => {
                     const li = $(element);
                     li.find('>*').addClass(this.options.tagClass);
                 });
@@ -88,7 +89,7 @@
         countTags = () => {
             this.items = [];
             this.scene.find('ul>li').each((i, item) => {
-                $(item).find('.'+this.options.tagClass).on('click', () => this.handleTagClick(i));
+                $(item).find('.' + this.options.tagClass).on('click', () => this.handleTagClick(i));
                 this.items.push($(item))
             });
         };
@@ -119,7 +120,7 @@
             if (index < this.items.length) {
                 this.activeTag = index;
             } else {
-                this.activeTag = this.items.length -1;
+                this.activeTag = this.items.length - 1;
                 console.warn('Atempt to slide to non-existing slide (index: ' + index + ')');
             }
             const activeLi = this.items[this.activeTag];
@@ -205,11 +206,10 @@
             if (typeof options == 'object' || typeof options == 'undefined')
                 this[i].tagSlider = new TagSlider($(this[i]), options);
             else {
-                if(typeof (this[i].tagSlider[options]) === "function"){
+                if (typeof (this[i].tagSlider[options]) === "function") {
                     this[i].tagSlider[options](args);
-                }
-                else{
-                    console.warn('tagSlider: no such method "'+options+'"');
+                } else {
+                    console.warn('tagSlider: no such method "' + options + '"');
                 }
             }
             if (typeof ret != 'undefined') return ret;
