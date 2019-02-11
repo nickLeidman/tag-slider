@@ -107,9 +107,9 @@
         };
 
         handleTagClick = (i) => {
-            this.list.trigger('tagSliderTagSelected', [i, this.activeTag, this]);
             this.selectTag(i);
             const tag = this.items[i];
+            this.list.trigger('tagSliderTagSelected', [i, this.activeTag, this]);
         };
 
         selectTag = (args, noAnimation = false) => {

@@ -67,3 +67,4 @@ values: (bool); default: `false`
 ###tagSliderBuilt
 ###tagSliderInit
 ###tagSliderTagSelected
+[event, index, ul, slider]
